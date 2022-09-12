@@ -5,12 +5,21 @@
   "main": "index.js",
   "author": "joshcsan@gmail.com",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon -r tsconfig-paths/register ./server/index.ts",
+    "build": "tsc",
+    "start": "TS_NODE_BASEURL=./dist node -r tsconfig-paths/register ./dist/index.js",
+    "prestart": "rm -rf ./dist && npm run build"
+  },
   "dependencies": {
     "@trpc/server": "^9.27.2",
     "apisauce": "^2.1.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
     "zod": "^3.19.1"
   },
   "devDependencies": {
+    "nodemon": "^2.0.19",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.1.0",
     "typescript": "^4.8.3"
