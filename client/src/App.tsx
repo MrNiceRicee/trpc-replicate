@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { trpc } from "./util/trpc";
-import Test from "./Test";
+import Hello from "./Hello";
+import SayHi from "./SayHi";
+import Ping from "./Ping";
 
 const App = () => {
   const [queryClient] = useState(
@@ -17,7 +19,7 @@ const App = () => {
 
   const [trpcClient] = useState(() =>
     trpc.createClient({
-      url: "http://localhost:8081/api",
+      url: "http://localhost:8080/api",
       // optional
       headers() {
         return {
@@ -29,7 +31,9 @@ const App = () => {
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
-        <Test />
+        <Hello />
+        <SayHi />
+        <Ping />
       </QueryClientProvider>
     </trpc.Provider>
   );

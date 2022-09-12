@@ -6,11 +6,11 @@ const message = createRouter().query("sayHi", {
     hasUser: true,
   },
   input: z.object({
-    name: z.string(),
+    name: z.string().optional(),
     message: z.string().optional(),
   }),
   resolve({ input, ctx }) {
-    return `${input.name} said ${input.message ?? "hi"} to ${ctx.user.name}`;
+    return `${input.name ?? 'someone'} said ${input.message ?? "hi"} to ${ctx.user.name}`;
   },
 });
 

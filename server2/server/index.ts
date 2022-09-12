@@ -14,7 +14,7 @@ const main = async () => {
 
   app.use((req, _res, next) => {
     // request logger
-    console.log("⬅️ server1", req.method, req.path, req.body ?? req.query);
+    console.log("⬅️ server2", req.method, req.path, req.body ?? req.query);
     next();
   });
 
@@ -26,8 +26,8 @@ const main = async () => {
     })
   );
 
-  app.listen(8081, () => {
-    console.log("Example app listening on port 8081!");
+  app.listen(8082, () => {
+    console.log("Example app listening on port 8082!");
   });
 };
 
