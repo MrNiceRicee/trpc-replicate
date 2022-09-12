@@ -1,6 +1,7 @@
 import { trpc } from "./util/trpc";
 
 const Test = () => {
+  // typing breaks here when .merge is added in the server
   const hello = trpc.useQuery([
     "hello",
     {
